@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 void main() => runApp(new MyApp());
 
@@ -18,6 +19,8 @@ class MyApp extends StatelessWidget {
         // or press Run > Flutter Hot Reload in IntelliJ). Notice that the
         // counter didn't reset back to zero; the application is not restarted.
         primarySwatch: Colors.blue,
+        primaryColor: Colors.black,
+        accentColor: Colors.red[800]    
       ),
       home: new MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -68,8 +71,67 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: new AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: new Text(widget.title),
+
+        title: new Center(
+          child: new Column( 
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[new Text(widget.title)],)
+        ), 
+        toolbarOpacity: 1.0,
+        //preferredSize: new Size(0.0, 100.0),
+        bottom: PreferredSize(
+          preferredSize: Size(0.0, 50.0), 
+          child: new Container()),
+        
+      ),   
+      floatingActionButtonLocation: 
+      FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+      child: const Icon(Icons.add), onPressed: () {},),
+
+      bottomNavigationBar: new BottomAppBar(
+        // BottomNavigationBarItem(title: new Text("hi"), icon: new Icon(Icons.shop), backgroundColor: Colors.amber),
+        hasNotch: true,        
+        child: new Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            new Row(
+              mainAxisAlignment: MainAxisAlignment.start,          
+              children: <Widget>[
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    new IconButton(
+                      icon: new Icon(Icons.volume_up, color: Colors.red),
+                      tooltip: 'Increase volume by 10%',
+                    ),
+                    new IconButton(
+                      icon: new Icon(Icons.volume_up, color: Colors.red),
+                      tooltip: 'Increase volume by 10%',
+                    ),
+                  ],
+                  // BottomNavigationBarItem(title: new Text("hi"), icon: new Icon(Icons.shop), backgroundColor: Colors.amber),
+                ),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    new IconButton(
+                      icon: new Icon(Icons.volume_up, color: Colors.red),
+                      tooltip: 'Increase volume by 10%',
+                    ),
+                  ],
+                  // BottomNavigationBarItem(title: new Text("hi"), icon: new Icon(Icons.shop), backgroundColor: Colors.amber),
+                ),
+              ],
+            ),
+          ],
+        ),
+
       ),
+      
+
       body: new Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -88,6 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             new Text(
               'You have pushed the button this many times:',
@@ -99,11 +162,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // floatingActionButton: new FloatingActionButton(
+      //   onPressed: _incrementCounter,
+      //   tooltip: 'Increment',
+      //   child: new Icon(Icons.add),
+      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
