@@ -10,19 +10,18 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: new ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or press Run > Flutter Hot Reload in IntelliJ). Notice that the
-        // counter didn't reset back to zero; the application is not restarted.
-        primarySwatch: Colors.blue,
-        primaryColor: Colors.black,
-        accentColor: Colors.red[800]    
-      ),
-      home: new MyHomePage(title: 'Flutter Demo Home Page'),
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or press Run > Flutter Hot Reload in IntelliJ). Notice that the
+          // counter didn't reset back to zero; the application is not restarted.
+          primarySwatch: Colors.blue,
+          primaryColor: Colors.black,
+          accentColor: Colors.red[800]),
+      home: new MyHomePage(title: 'Aryan is a little birch'),
     );
   }
 }
@@ -73,64 +72,85 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
 
         title: new Center(
-          child: new Column( 
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[new Text(widget.title)],)
-        ), 
+            child: new Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[new Text(widget.title)],
+        )),
         toolbarOpacity: 1.0,
         //preferredSize: new Size(0.0, 100.0),
         bottom: PreferredSize(
-          preferredSize: Size(0.0, 50.0), 
-          child: new Container()),
-        
-      ),   
-      floatingActionButtonLocation: 
-      FloatingActionButtonLocation.centerDocked,
+            preferredSize: Size(0.0, 50.0), child: new Container()),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-      child: const Icon(Icons.add), onPressed: () {},),
+        child: const Icon(Icons.add),
+        onPressed: () {},
+      ),
 
       bottomNavigationBar: new BottomAppBar(
         // BottomNavigationBarItem(title: new Text("hi"), icon: new Icon(Icons.shop), backgroundColor: Colors.amber),
-        hasNotch: true,        
+        hasNotch: true,
         child: new Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             new Row(
-              mainAxisAlignment: MainAxisAlignment.start,          
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                new Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    new IconButton(
-                      icon: new Icon(Icons.volume_up, color: Colors.red),
-                      tooltip: 'Increase volume by 10%',
-                    ),
-                    new IconButton(
-                      icon: new Icon(Icons.volume_up, color: Colors.red),
-                      tooltip: 'Increase volume by 10%',
-                    ),
-                  ],
-                  // BottomNavigationBarItem(title: new Text("hi"), icon: new Icon(Icons.shop), backgroundColor: Colors.amber),
+                new Expanded(
+                  flex: 2,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      new Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          new IconButton(
+                            icon: new Icon(Icons.bubble_chart, color: Colors.red),
+                            tooltip: 'Increase volume by 10%',
+                          ),
+                          new IconButton(
+                            icon: new Icon(Icons.share, color: Colors.red),
+                            tooltip: 'Increase volume by 10%',
+                          ),
+                        ],
+                      )
+                    ],
+                    // BottomNavigationBarItem(title: new Text("hi"), icon: new Icon(Icons.shop), backgroundColor: Colors.amber),
+                  ),
                 ),
-                new Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    new IconButton(
-                      icon: new Icon(Icons.volume_up, color: Colors.red),
-                      tooltip: 'Increase volume by 10%',
-                    ),
-                  ],
-                  // BottomNavigationBarItem(title: new Text("hi"), icon: new Icon(Icons.shop), backgroundColor: Colors.amber),
+                new Expanded(
+                  flex: 1,
+                  child: new Column(),
+                ),  
+                new Expanded(
+                  flex: 2,
+                  child: new Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      new Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          new IconButton(
+                            icon: new Icon(Icons.shop, color: Colors.red),
+                            tooltip: 'Increase volume by 10%',
+                          ),
+                          new IconButton(
+                            icon: new Icon(Icons.settings, color: Colors.red),
+                            tooltip: 'Increase volume by 10%',
+                          ),
+                        ],
+                      )
+                    ],
+                    // BottomNavigationBarItem(title: new Text("hi"), icon: new Icon(Icons.shop), backgroundColor: Colors.amber),
+                  ),
                 ),
               ],
             ),
           ],
         ),
-
       ),
-      
 
       body: new Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -153,10 +173,10 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             new Text(
-              'You have pushed the button this many times:',
+              'Elon musk tokens:',
             ),
             new Text(
-              '$_counter',
+              '23',
               style: Theme.of(context).textTheme.display1,
             ),
           ],
