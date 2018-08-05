@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'BottomNavBar.dart';
+import 'package:myactualapp/Models/LoginModel.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginView extends StatefulWidget {
   @override
@@ -77,7 +79,25 @@ class _LoginViewState extends State<LoginView> {
                             color: Colors.red,
                             textColor: Colors.white,
                             child: new Icon(Icons.airline_seat_legroom_extra),
-                            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => new BottomNavBar(title: 'Aryan is a little birch'))),
+                            onPressed: () => LoginModel()
+                                .handleSignIn()
+                                .then((FirebaseUser user) => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => new BottomNavBar(
+                                            title: user.displayName))))
+                                .catchError((e) => print(e)), //,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: MaterialButton(
+                            height: 40.0,
+                            minWidth: 100.0,
+                            color: Colors.red,
+                            textColor: Colors.white,
+                            child: new Icon(Icons.cancel),
+                            onPressed: () => LoginModel().signOut(),
                           ),
                         ),
                       ],
