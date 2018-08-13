@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'BottomNavBar.dart';
+import 'MainScaffoldView.dart';
 import 'package:myactualapp/Models/LoginModel.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -84,7 +84,7 @@ class _LoginViewState extends State<LoginView> {
                                 .then((FirebaseUser user) => Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => new BottomNavBar(
+                                        builder: (context) => new MainScaffoldView(
                                             title: user.displayName))))
                                 .catchError((e) => print(e)), //,
                           ),

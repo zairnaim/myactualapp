@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:myactualapp/Views/BottomNavBar.dart';
+import 'package:myactualapp/Views/MainScaffoldView.dart';
 import 'package:myactualapp/Views/LoginView.dart';
 
 void main() => runApp(new MyApp());

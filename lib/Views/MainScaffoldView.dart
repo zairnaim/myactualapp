@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'WorkoutView.dart';
+import 'AccountView.dart';
 
-
-class BottomNavBar extends StatefulWidget {
-  BottomNavBar({Key key, this.title}) : super(key: key);
+class MainScaffoldView extends StatefulWidget {
+  MainScaffoldView({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -16,11 +17,13 @@ class BottomNavBar extends StatefulWidget {
   final String title;
 
   @override
-  _BottomNavBarState createState() => new _BottomNavBarState();
+  _MainScaffoldViewState createState() => new _MainScaffoldViewState();
 }
 
-class _BottomNavBarState extends State<BottomNavBar> {
+class _MainScaffoldViewState extends State<MainScaffoldView> {
   int _counter = 0;
+  Widget _currentBodyWidget = WorkOutView();
+  Widget _currentFAB = WorkOutFAB();
 
   void _incrementCounter() {
     setState(() {
@@ -45,7 +48,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       appBar: new AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-
+        automaticallyImplyLeading: false,
         title: new Center(
             child: new Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -56,11 +59,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         bottom: PreferredSize(
             preferredSize: Size(0.0, 50.0), child: new Container()),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {},
-      ),
+
 
       bottomNavigationBar: new BottomAppBar(
         // BottomNavigationBarItem(title: new Text("hi"), icon: new Icon(Icons.shop), backgroundColor: Colors.amber),
@@ -81,12 +80,25 @@ class _BottomNavBarState extends State<BottomNavBar> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           new IconButton(
-                            icon: new Icon(Icons.bubble_chart, color: Colors.red),
+                            icon:
+                                new Icon(Icons.bubble_chart, color: Colors.red),
                             tooltip: 'Increase volume by 10%',
+                            onPressed: () {
+                              setState(() {
+                                _currentBodyWidget = AccountView();
+                                _currentFAB = AccountViewFAB();
+                              });
+                            },
                           ),
                           new IconButton(
                             icon: new Icon(Icons.share, color: Colors.red),
                             tooltip: 'Increase volume by 10%',
+                            onPressed: () {
+                              setState(() {
+                                _currentBodyWidget = WorkOutView();
+                                _currentFAB = WorkOutFAB();
+                              });
+                            },
                           ),
                         ],
                       )
@@ -97,7 +109,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 new Expanded(
                   flex: 1,
                   child: new Column(),
-                ),  
+                ),
                 new Expanded(
                   flex: 2,
                   child: new Column(
@@ -110,7 +122,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                           new IconButton(
                             icon: new Icon(Icons.shop, color: Colors.red),
                             tooltip: 'Increase volume by 10%',
-                            onPressed:() => _incrementCounter(), 
+                            onPressed: () => _incrementCounter,
                           ),
                           new IconButton(
                             icon: new Icon(Icons.settings, color: Colors.red),
@@ -128,36 +140,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ),
       ),
 
-      body: new Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: new Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug paint" (press "p" in the console where you ran
-          // "flutter run", or select "Toggle Debug Paint" from the Flutter tool
-          // window in IntelliJ) to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            new Text(
-              'Elon musk tokens:',
-            ),
-            new Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
-      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: _currentFAB,
+
+      body: _currentBodyWidget,
       // floatingActionButton: new FloatingActionButton(
       //   onPressed: _incrementCounter,
       //   tooltip: 'Increment',
