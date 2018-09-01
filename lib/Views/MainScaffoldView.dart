@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'WorkoutView.dart';
 import 'AccountView.dart';
+ import 'package:myactualapp/Resources/MyColors.dart';
 
 class MainScaffoldView extends StatefulWidget {
   MainScaffoldView({Key key, this.title}) : super(key: key);
@@ -63,7 +64,7 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
 
       bottomNavigationBar: new BottomAppBar(
         // BottomNavigationBarItem(title: new Text("hi"), icon: new Icon(Icons.shop), backgroundColor: Colors.amber),
-        hasNotch: true,
+        shape: CircularNotchedRectangle(),
         child: new Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -81,7 +82,7 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
                         children: <Widget>[
                           new IconButton(
                             icon:
-                                new Icon(Icons.bubble_chart, color: Colors.red),
+                                new Icon(Icons.bubble_chart, color: MyColors.red),
                             tooltip: 'Increase volume by 10%',
                             onPressed: () {
                               setState(() {
@@ -91,7 +92,7 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
                             },
                           ),
                           new IconButton(
-                            icon: new Icon(Icons.share, color: Colors.red),
+                            icon: new Icon(Icons.share, color: MyColors.red),
                             tooltip: 'Increase volume by 10%',
                             onPressed: () {
                               setState(() {
@@ -120,12 +121,12 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           new IconButton(
-                            icon: new Icon(Icons.shop, color: Colors.red),
+                            icon: new Icon(Icons.shop, color: MyColors.red),
                             tooltip: 'Increase volume by 10%',
                             onPressed: () => _incrementCounter,
                           ),
                           new IconButton(
-                            icon: new Icon(Icons.settings, color: Colors.red),
+                            icon: new Icon(Icons.settings, color: MyColors.red),
                             tooltip: 'Increase volume by 10%',
                           ),
                         ],
@@ -152,3 +153,5 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
     );
   }
 }
+
+

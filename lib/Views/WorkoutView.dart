@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myactualapp/Views/Elements/TestCell.dart';
+import 'package:myactualapp/Views/Elements/WorkoutCell.dart';
 
 class WorkOutView extends StatefulWidget {
   @override
@@ -9,14 +9,14 @@ class WorkOutView extends StatefulWidget {
 class _WorkOutViewState extends State<WorkOutView> {
   int _counter = 0;
 
-  final List<TestCell> _messages = <TestCell>[]; // new
+  final List<WorkoutCell> _messages = <WorkoutCell>[]; // new
   final TextEditingController _textController = new TextEditingController();
 
   _handleSubmitted(String text) {
     _textController.clear();
-    TestCell message = new TestCell(
+    WorkoutCell message = new WorkoutCell(
       //new
-      text: text, //new
+      title: text, //new
     ); //new
     setState(() {
       //new
@@ -42,7 +42,7 @@ class _WorkOutViewState extends State<WorkOutView> {
         FlatButton(
           color: Colors.red,
           child: new Text("Button"),
-          onPressed: () => _handleSubmitted("text"),
+          onPressed: () => _handleSubmitted("DEADLIFTS"),
           disabledColor: Colors.black,
         ),
         new Flexible(
