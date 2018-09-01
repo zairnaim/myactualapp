@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myactualapp/Models/FetchData.dart';
 
 class AccountView extends StatefulWidget {
   @override
@@ -56,7 +57,8 @@ class AccountViewFAB extends StatelessWidget {
     // TODO: implement build
     return (FloatingActionButton(
       child: const Icon(Icons.home),
-      onPressed: () {_AccountViewState().incrementCounter();},
+      // onPressed: () {_AccountViewState().incrementCounter();},
+      //  onPressed: () {FetchData.addUser();},
     ));
   }
 }

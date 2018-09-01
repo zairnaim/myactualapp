@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'FetchData.dart';
 import 'dart:async';
 
 
@@ -19,7 +20,8 @@ class LoginModel{
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
-    print("signed in " + user.displayName);
+    print("signed in " + user.displayName + "token" + user.uid);
+    FetchData.addUser(user.uid.toString(), user.displayName);
     return user;
   }
 

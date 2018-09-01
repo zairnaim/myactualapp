@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'WorkoutView.dart';
 import 'AccountView.dart';
- import 'package:myactualapp/Resources/MyColors.dart';
+import 'package:myactualapp/Resources/MyColors.dart';
 
 class MainScaffoldView extends StatefulWidget {
   MainScaffoldView({Key key, this.title}) : super(key: key);
@@ -49,7 +49,7 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
       appBar: new AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        automaticallyImplyLeading: false,
+        // automaticallyImplyLeading: false,
         title: new Center(
             child: new Column(
           mainAxisAlignment: MainAxisAlignment.end,
