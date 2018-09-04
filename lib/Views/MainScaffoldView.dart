@@ -50,15 +50,16 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         // automaticallyImplyLeading: false,
-        title: new Center(
+        title: 
+        new Center(
             child: new Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[new Text(widget.title)],
         )),
         toolbarOpacity: 1.0,
         //preferredSize: new Size(0.0, 100.0),
-        bottom: PreferredSize(
-            preferredSize: Size(0.0, 50.0), child: new Container()),
+        // bottom: PreferredSize(
+        //     preferredSize: Size(0.0, 50.0), child: new Container()),
       ),
 
 
