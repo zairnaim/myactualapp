@@ -26,7 +26,7 @@ class _RepetitionsAvatarState extends State<RepetitionsAvatar> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
     return Container(
       child: (!_isAdjustingWeight)
           ? Column(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'WorkoutView.dart';
 import 'AccountView.dart';
 import 'package:myactualapp/Resources/MyColors.dart';
+import 'package:myactualapp/Models/LoginModel.dart';
 
 class MainScaffoldView extends StatefulWidget {
   MainScaffoldView({Key key, this.title}) : super(key: key);
@@ -23,7 +24,7 @@ class MainScaffoldView extends StatefulWidget {
 
 class _MainScaffoldViewState extends State<MainScaffoldView> {
   int _counter = 0;
-  Widget _currentBodyWidget = WorkOutView();
+  Widget _currentBodyWidget = WorkoutView();
   Widget _currentFAB = WorkOutFAB();
 
   void _incrementCounter() {
@@ -97,7 +98,7 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
                             tooltip: 'Increase volume by 10%',
                             onPressed: () {
                               setState(() {
-                                _currentBodyWidget = WorkOutView();
+                                _currentBodyWidget = WorkoutView();
                                 _currentFAB = WorkOutFAB();
                               });
                             },

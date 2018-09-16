@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:myactualapp/Views/Elements/WorkoutCell.dart';
 
-class WorkOutView extends StatefulWidget {
+class WorkoutView extends StatefulWidget {
+
+  const WorkoutView({Key key}) : super(key: key);
+
   @override
-  _WorkOutViewState createState() => new _WorkOutViewState();
+  _WorkoutViewState createState() => new _WorkoutViewState();
 }
 
-class _WorkOutViewState extends State<WorkOutView> {
+class _WorkoutViewState extends State<WorkoutView> with AutomaticKeepAliveClientMixin<WorkoutView>{
   int _counter = 0;
 
   final List<WorkoutCell> _messages = <WorkoutCell>[]; // new
   final TextEditingController _textController = new TextEditingController();
+  final addKey = GlobalKey();
+
+  @override
+  bool get wantKeepAlive => true;
 
   _handleSubmitted(String text) {
     _textController.clear();
@@ -36,10 +43,12 @@ class _WorkOutViewState extends State<WorkOutView> {
   }
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return new Column(
       //modified
       children: <Widget>[
         FlatButton(
+          key: addKey,
           color: Colors.red,
           child: new Text("Button"),
           onPressed: () => _handleSubmitted("DEADLIFTS"),
@@ -65,7 +74,11 @@ class _WorkOutViewState extends State<WorkOutView> {
       ], //new
     );
   }
+
+
 }
+
+
 
 class WorkOutFAB extends StatelessWidget {
   @override

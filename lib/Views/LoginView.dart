@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'MainScaffoldView.dart';
 import 'package:myactualapp/Models/LoginModel.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:myactualapp/Models/FetchData.dart';
+import 'package:myactualapp/Models/FetchDataModel.dart';
+import 'package:myactualapp/Views/AccountView.dart';
+import 'package:myactualapp/Views/HistoryView.dart';
 
 class LoginView extends StatefulWidget {
   @override
@@ -12,20 +14,7 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
-    // return new Material(
-    //   color:Colors.greenAccent,
-    //   child:new InkWell(
-    //     onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new BottomNavBar())),
-    //     child: new Column(
-    //       mainAxisAlignment: MainAxisAlignment.center,
-    //       children: <Widget>[
-    //         new Text("Let's Quiz", style: new TextStyle(color: Colors.white, fontFamily: "Times New Roman", fontSize: 40.0),),
-    //         new Text("Tap To Start!", style: new TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold))
 
-    //       ],
-    //     )
-    //   )
-    // );
     return new Scaffold(
       backgroundColor: Colors.redAccent,
       body: new Stack(
@@ -79,14 +68,15 @@ class _LoginViewState extends State<LoginView> {
                             minWidth: 100.0,
                             color: Colors.red,
                             textColor: Colors.white,
-                            child: new Icon(Icons.airline_seat_legroom_extra),
+                            child: new Text("Login"),
                             onPressed: () => LoginModel()
                                 .handleSignIn()
                                 .then((FirebaseUser user) => Navigator.push(
-                                    context,
+                                  context, //HistoryView())//MaterialPageRoute( builder:  (context) => HistoryView()))
                                     MaterialPageRoute(
                                         builder: (context) => new MainScaffoldView(
-                                            title: user.displayName))))
+                                            title: user.displayName)))
+                                )
                                 .catchError((e) => print(e)), //,
                           ),
                         ),
@@ -95,12 +85,23 @@ class _LoginViewState extends State<LoginView> {
                           child: MaterialButton(
                             height: 40.0,
                             minWidth: 100.0,
-                            color: Colors.red,
-                            textColor: Colors.white,
-                            child: new Icon(Icons.cancel),
+                            color: Colors.white,
+                            textColor: Colors.red,
+                            child: new Text("Logout"),
                             onPressed: () => LoginModel().signOut(),
                           ),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: MaterialButton(
+                            height: 40.0,
+                            minWidth: 100.0,
+                            color: Colors.white,
+                            textColor: Colors.red,
+                            child: new Text("Print Data"),
+                            onPressed: () => FetchDataModel.getExerciseList()//addUser("hilo","bilo"),
+                          ),
+                        )
                       ],
                     ),
                   ),
