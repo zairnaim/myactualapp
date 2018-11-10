@@ -13,7 +13,7 @@ class WorkoutCell extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Material(
         color: MyColors.stroke,
-        // borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        //borderRadius: BorderRadius.all(Radius.circular(10.0)),
         borderRadius: BorderRadius.all(
           Radius.circular(10.0),
         ),
@@ -23,7 +23,6 @@ class WorkoutCell extends StatelessWidget {
             color: MyColors.red,
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
             child: Container(
-              // margin: EdgeInsets.all(2.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -54,12 +53,14 @@ class WorkoutCell extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(8.0)),
                       child: new Container(
                         padding: EdgeInsets.only(top: 2.0),
-                        color: MyColors.stroke,
+                        //color: MyColors.stroke,
                         child: Material(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.elliptical(8.0, 12.0),
-                              topRight: Radius.elliptical(8.0, 12.0)),
+                              topRight: Radius.elliptical(8.0, 12.0),
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10)),
                           child: new Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
