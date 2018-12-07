@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'WorkoutView.dart';
+import 'SelectWorkoutView.dart';
 import 'AccountView.dart';
 import 'package:myactualapp/Resources/MyColors.dart';
-import 'package:myactualapp/Models/LoginModel.dart';
+import 'package:myactualapp/Models/Authentication/LoginModel.dart';
 
 class MainScaffoldView extends StatefulWidget {
   MainScaffoldView({Key key, this.title}) : super(key: key);
@@ -51,8 +52,7 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         // automaticallyImplyLeading: false,
-        title: 
-        new Center(
+        title: new Center(
             child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[new Text(widget.title)],
@@ -62,7 +62,6 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
         // bottom: PreferredSize(
         //     preferredSize: Size(0.0, 50.0), child: new Container()),
       ),
-
 
       bottomNavigationBar: new BottomAppBar(
         // BottomNavigationBarItem(title: new Text("hi"), icon: new Icon(Icons.shop), backgroundColor: Colors.amber),
@@ -83,8 +82,8 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           new IconButton(
-                            icon:
-                                new Icon(Icons.bubble_chart, color: MyColors.red),
+                            icon: new Icon(Icons.bubble_chart,
+                                color: MyColors.red),
                             tooltip: 'Increase volume by 10%',
                             onPressed: () {
                               setState(() {
@@ -130,6 +129,12 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
                           new IconButton(
                             icon: new Icon(Icons.settings, color: MyColors.red),
                             tooltip: 'Increase volume by 10%',
+                            onPressed: () {
+                              setState(() {
+                                _currentBodyWidget = SelectWorkoutView();
+                                _currentFAB = WorkOutFAB();
+                              });
+                            },
                           ),
                         ],
                       )
@@ -155,5 +160,3 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
     );
   }
 }
-
-

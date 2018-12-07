@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myactualapp/Models/FetchDataModel.dart';
+import 'package:myactualapp/Models/Database/FetchDataModel.dart';
 
 class AccountView extends StatefulWidget {
   @override

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'MainScaffoldView.dart';
-import 'package:myactualapp/Models/LoginModel.dart';
+import 'package:myactualapp/Models/Authentication/LoginModel.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:myactualapp/Models/FetchDataModel.dart';
+import 'package:myactualapp/Models/Database/FetchDataModel.dart';
 import 'package:myactualapp/Views/AccountView.dart';
 import 'package:myactualapp/Views/HistoryView.dart';
 

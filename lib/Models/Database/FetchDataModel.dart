@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'WorkoutModel.dart';
+import '../WorkoutModel.dart';
 
 class FetchDataModel {
   static Firestore db = Firestore.instance;
@@ -11,12 +11,42 @@ class FetchDataModel {
   };
 
   static void addUser(String userid, String username) {
-    var documents = db.collection("Users").getDocuments();
+    String UID = "UID";
+    String USERNAME = "Username";
 
-    print("HEYY" + documents.toString());
-    print("Why aren't you printing??");
+    // var documents = db.collection("Users").getDocuments();
+
+    // print("HEYY" + documents.toString());
+    // print("Why aren't you printing??");
     //db.collection("Users");
-    db.collection("Users").add({userid: username});
+
+    print("HELLOO");
+
+    void foo() async {
+      final bool user = await doesNameAlreadyExist(userid);
+      print("the aync thingy even run???");
+      if (user == false){
+        db.collection("Users").add({UID: userid, USERNAME: username});
+      }
+    }
+    foo();
+    //db.collection("Users").add({UID: username, userid: username});
+    // await doesNameAlreadyExist(userid).then((value)  {value == false})
+    // {
+    //   db.collection("Users").add({UID: username, USERNAME: username});
+    // }
+  }
+
+  static Future<bool> doesNameAlreadyExist(String userid) async {
+    print("DID THIS EVEN RUN???");
+    final QuerySnapshot result = await Firestore.instance
+        .collection('Users')
+        .where('UID', isEqualTo: userid)
+        .limit(1)
+        .getDocuments();
+    final List<DocumentSnapshot> documents = result.documents;
+    print(documents.length);
+    return documents.length == 1;
   }
 
   static void getExerciseList() {
