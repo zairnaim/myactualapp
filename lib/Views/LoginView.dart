@@ -99,7 +99,7 @@ class _LoginViewState extends State<LoginView> {
                             color: Colors.white,
                             textColor: Colors.red,
                             child: new Text("Print Data"),
-                            onPressed: () => FetchDataModel.getExerciseList()//addUser("hilo","bilo"),
+                            onPressed: () => FetchDataModel.getWorkoutListFromFireStore()//addUser("hilo","bilo"),
                           ),
                         )
                       ],

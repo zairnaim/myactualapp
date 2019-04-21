@@ -16,9 +16,11 @@ class SelectWorkoutCell extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(title, style: TextStyle(fontSize: 50.0, color: Colors.black)),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(title, style: TextStyle(fontSize: 50.0, color: Colors.black)),
+              ),
             ),
           ],
         ),

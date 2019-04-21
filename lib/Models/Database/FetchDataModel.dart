@@ -25,10 +25,11 @@ class FetchDataModel {
     void foo() async {
       final bool user = await doesNameAlreadyExist(userid);
       print("the aync thingy even run???");
-      if (user == false){
+      if (user == false) {
         db.collection("Users").add({UID: userid, USERNAME: username});
       }
     }
+
     foo();
     //db.collection("Users").add({UID: username, userid: username});
     // await doesNameAlreadyExist(userid).then((value)  {value == false})
@@ -49,30 +50,40 @@ class FetchDataModel {
     return documents.length == 1;
   }
 
-  static void getExerciseList() {
-    CollectionReference stronglifts = db.collection(
-        "workouts"); //.document("Stronglifts");//  .getDocuments().ma;
-    //QuerySnapshot query = await stronglifts.where("name", isNull: false ).getDocuments();
+////////////////////////////////////////////////
 
-    //query.documents.forEach((document) {
-    print("LJKJLKJLJL:" + stronglifts.toString());
+  // static List<String> getExerciseList() {
+  //   CollectionReference stronglifts = db.collection("workouts");
+  //   //.document("Stronglifts");//  .getDocuments().ma;
+  //   //QuerySnapshot query = await stronglifts.where("name", isNull: false ).getDocuments();
 
-    _getWorkoutListFromFireStore(stronglifts);
-  }
+  //   //query.documents.forEach((document) {
+  //   print("LJKJLKJLJL:" + stronglifts.toString());
 
-  static Future<List<WorkoutModel>> _getWorkoutListFromFireStore(
-      CollectionReference collection) async {
+  //   List<String> workoutmodellist;
+  //   void convertfuturetolist() async {
+  //     workoutmodellist = await getWorkoutListFromFireStore();
+  //   }
+
+  //   convertfuturetolist();
+  //   return workoutmodellist;
+  // }
+
+  ///returns the list of all the workouts.
+  static Future<List<String>> getWorkoutListFromFireStore() async {
+    var collection = db.collection("workouts");
     QuerySnapshot querySnapshot = await collection.getDocuments();
 
-    List<WorkoutModel> workoutlist = new List();
+    List<String> workoutlist = new List();
     querySnapshot.documents.forEach((doc) {
-      workoutlist.add(new WorkoutModel(workoutname: doc['workoutname']));
+      workoutlist.add((doc['workoutname']));
     });
 
     workoutlist.forEach((f) {
-      print(f.getworkoutname.toString());
+      print(f);
     });
 
     return workoutlist;
   }
 }
+

@@ -1,16 +1,16 @@
 import 'package:meta/meta.dart';
+import 'package:flutter_flux/flutter_flux.dart';
 
-class WorkoutModel {
+class WorkoutModel{
 
   final String workoutname;
-  final List<String> workoutnames;
 
   String get getworkoutname => workoutname;
 
   WorkoutModel({
-    @required this.workoutname,
-    this.workoutnames,
+    @required this.workoutname
     });
   
   
 }
+

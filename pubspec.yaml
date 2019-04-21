@@ -13,6 +13,7 @@ dependencies:
   cloud_firestore: ^0.7.4
   numberpicker: ^0.1.6
   flutter_flux: ^4.1.1
+  http: ^0.12.0
 
 
 dev_dependencies:
