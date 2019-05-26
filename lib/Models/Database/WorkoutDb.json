@@ -1,0 +1,14 @@
+{
+    "myCollection": {
+        "UniqueKey1": {
+            "field1": "foo",
+            "field2": "bar"
+        },
+        "something else": {
+            "UniqueKey2": {
+                "field1": "fog",
+                "field2": "buzz"
+            }
+        }
+    }
+}
