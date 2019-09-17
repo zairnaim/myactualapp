@@ -60,7 +60,7 @@ class _SelectWorkoutViewState extends State<SelectWorkoutView> {
         ),
         Flexible(
           child: FutureBuilder<Object>(
-              future: FetchDataModel.getWorkoutListFromFireStore(),
+              future: FetchDataModel.getExerciseListFromFireStore(),
               builder: (context, snapshot) {
                 if (!snapshot.hasData)
                   return new Container();
@@ -83,5 +83,7 @@ class _SelectWorkoutViewState extends State<SelectWorkoutView> {
     setState(() {
       print("raragaege");
     });
+    var hi = FetchDataModel.getExerciseListFromFireStore();
+
   }
 }

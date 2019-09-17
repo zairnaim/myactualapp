@@ -85,5 +85,31 @@ class FetchDataModel {
 
     return workoutlist;
   }
-}
 
+  ///returns the list of all the workouts.
+  static Future<List<String>> getExerciseListFromFireStore(
+      {String workout = "Omar's 6 Day Lean Mass"}) async {
+
+    var collection = db.collection("workouts").document(workout).collection('Exercises');
+    QuerySnapshot querySnapshot = await collection.getDocuments();
+
+    List<String> workoutlist = new List();
+    querySnapshot.documents.forEach((doc) {
+      if (doc.documentID.toString() == 'Day1'){
+        var data = doc.data.values;
+
+        var sets = data.toSet();
+        var list = data.toList();
+                print("");
+         //doc.data.forEach((f) => {workoutlist.add(f)});
+      }
+      // workoutlist.add([(doc.data.values)]);
+    });
+
+    workoutlist.forEach((f) {
+      print(f);
+    });
+
+    return workoutlist;
+  }
+}
